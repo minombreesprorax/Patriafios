@@ -1,0 +1,83 @@
+{% extends 'genericbase.html' %}
+{% block title %}Página Principal{% endblock %}
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* Estilos adicionales específicos para esta página */
+        .main-hero-section {
+            background-color: #f5ea96;
+            padding: 10vh 5vw; /* Adjusted padding */
+            text-align: center;
+            font-family: Kanit;
+        }
+
+        .hero-section {
+            background-color: #f5ea96;
+            padding: 5vh 5vw; /* Adjusted padding */
+            text-align: center;
+            margin-bottom: 20px;
+            font-family: Kanit;
+        }
+
+        .hero-title {
+            font-size: 3em;
+            color: #0A2463;
+            margin-bottom: 15px;
+            font-family: Kanit-Black;
+        }
+
+        .hero-description {
+            font-size: 1.2em;
+            color: #4E4E4E;
+            margin-bottom: 40px;
+            font-family: Kanit;
+        }
+
+        /* Responsive Iframes */
+        .iframe-container {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            padding-top: 56.25%; /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
+            font-family: Kanit;
+        }
+
+      
+
+        .responsive-iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            font-family: Kanit;
+        }
+
+    </style>
+{% endblock %}
+{% block content %}
+    <div class="main-hero-section">
+        <h2 class="hero-title">¡Bienvenido/a a Patriafíos!</h2>
+        <p class="hero-description">La plataforma de desafíos y preguntas diarias sobre la patria.</p>
+        {% if username %}
+            <a href="account" class="cta-button">Ir a mi cuenta</a> <br>
+            <a href="challenge" class="cta-button">Ir a Patriafío diario</a>
+        {% else %}
+            <a href="login-register" class="cta-button">Iniciar Sesión o Registrarse</a>
+        {% endif %}
+    </div>
+
+    </div>
+    
+    <div class="hero-section">
+        <h2 class="hero-title">Normas de Convivencia</h2>
+        <p>
+            Toda rotura de estas normas o de las normas escolares pueden terminar en un baneo de la cuenta Patriafíos y/o Sanción.<br>
+            <br>
+            1. No se permite usar nombres de usuario explícitos/indebidos.<br>
+            2. Las respuestas a las preguntas no pueden contener lenguaje soez.<br>
+            3. Se deben respetar las normas de convivencia del colegio Tomás Alva Edison P-S 113.
+        </p>
+    </div>
+{% endblock %}

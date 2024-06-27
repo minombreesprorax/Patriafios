@@ -1,0 +1,175 @@
+{% extends 'genericbase.html' %}
+{% block title %}Patriafío Diario{% endblock %}
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+<style>
+    body { 
+      background-color: #f5ea96;
+      font-family: Kanit;
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-attachment: fixed;
+    }   
+  
+    .form-container { 
+      text-align: center;
+      border: 5px solid rgb(252, 232, 83);
+      max-width: 300px; 
+      margin: 200px auto; 
+      padding: 50px; 
+      background-color: #fff;
+      border-radius: 15px; 
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+    }
+    
+    textarea { 
+      width: 100%; 
+      padding: 10px; 
+      margin: 10px 0; 
+      border: 2px solid #124559; 
+      border-radius: 5px; 
+      box-sizing: border-box; 
+      background-color: #97D2FB; 
+    }
+    
+    input[type="submit"] { 
+      width: 100%; 
+      padding: 10px; 
+      border: none; 
+      background-color: #124559; 
+      color: white; 
+      border-radius: 5px; 
+      cursor: pointer; 
+    }
+    
+    input[type="submit"]:hover { 
+      background-color: #1f779a; 
+    }
+    
+    .button-row label {
+      display: block;
+      margin: 5px 0;
+    }
+
+    .advertencia {
+        text-align: center;
+        font-size: 18px;
+        position: relative;
+        top: 13vh; 
+        font-family: Kanit;
+        /*
+
+        vw: Viewport width - Ancho del viewport
+        vh: Viewport height - Alto del viewport
+
+        */
+    }
+</style>
+{% endblock %}
+{% block content %}
+
+<div class="advertencia">
+    {% if error_message %}
+        {{ error_message }}
+    {% else %}
+        Preguntas abiertas: <br>
+        Estas van a ser corregidas manualmente <br>
+        Si tu respuesta está completa obtendras entre 5 y 7 puntos 
+        <br>
+        Si tu respuesta está incompleta obtendras entre 0 y 3 puntos <br>
+        Si tu respuesta está hecha con IA obtendrás 0 puntos <br>
+        Multiple Opción: <br>
+        Los puntos se te darán automáticamente <br>
+        Respuesta correcta: 3 puntos <br>
+        Respuesta incorrecta: 0 puntos
+    {% endif %}
+    
+</div>
+
+<div class="form-container">
+    <h2 id="question1">Cargando Pregunta 1...</h2>
+    <textarea id="answer" style="font-family: 'Kanit';" name="answer" placeholder="Respuesta" required></textarea>
+    
+    <h2 id="question2">Cargando Pregunta 2...</h2>
+    <div class="button-row" id="choices">
+        <!-- Choices will be populated here -->
+    </div>
+    <br>
+    <br>
+    <form id="answerForm">
+        <input type="submit" value="Enviar">
+    </form>
+</div>
+
+<script>
+    fetch('/static/qudb.json')
+        .then(response => response.json())
+        .then(data => {
+            const longQuestionIndex = Math.floor(Math.random() * data.long.length);
+            const multipleChoiceIndex = Math.floor(Math.random() * data.multiplechoice.length);
+            const longQuestion = data.long[longQuestionIndex];
+            const multipleChoiceQuestion = data.multiplechoice[multipleChoiceIndex];
+
+            document.getElementById('question1').innerText = longQuestion;
+            document.getElementById('question2').innerText = multipleChoiceQuestion.question;
+
+            const choicesDiv = document.getElementById('choices');
+            choicesDiv.innerHTML = ''; // Clear previous choices if any
+            const choices = multipleChoiceQuestion.answers;
+            choices.forEach((choice, index) => {
+                const input = document.createElement('input');
+                input.type = 'radio';
+                input.name = 'choice';
+                input.value = index + 1; // Assuming index starts from 0
+                const label = document.createElement('label');
+                label.innerText = choice;
+                label.prepend(input);
+                choicesDiv.appendChild(label);
+            });
+
+            // Store correct answer index for later use
+            document.getElementById('question2').dataset.correctAnswer = multipleChoiceQuestion.right;
+        });
+
+    document.getElementById('answerForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        const answer = document.getElementById('answer').value;
+        const choiceElement = document.querySelector('input[name="choice"]:checked');
+        if (!choiceElement) {
+            alert('¡Debes seleccionar una respuesta!');
+            return;
+        }
+        const choice = choiceElement.value;
+        const q1 = document.getElementById('question1').innerText;
+        const q2 = document.getElementById('question2').innerText;
+        const correctAnswer = document.getElementById('question2').dataset.correctAnswer;
+        const right = parseInt(choice) === parseInt(correctAnswer);
+
+        const data = {
+            answer: answer,
+            choice: choice,
+            q1: q1,
+            q2: q2,
+            right: right
+        };
+
+        fetch('/senddata', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+        .then(response => response.json())
+        .then(data => {
+            alert(data.message);
+            window.location.href = '/account'; // Redirect to /account
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+    });
+</script>
+
+{% endblock %}

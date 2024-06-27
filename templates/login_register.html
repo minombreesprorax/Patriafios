@@ -1,0 +1,71 @@
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="icon" type="image/png" href="/static/icon.ico">
+    <title>Login y Registro</title>
+    <style>
+        .advertencia {
+            background-color: #ffcccb;
+            border: 1px solid #ff0000;
+            border-radius: 10px;
+            padding: 10px;
+            margin: 50px;
+            font-weight: bold;
+            text-align: center;
+        }
+        .cerrar {
+            position: absolute;
+            top: 60px;
+            right: 70px;
+            font-size: 14px;
+            cursor: pointer;
+            font-size: medium;
+        }
+    </style>
+    <script>
+        function cerrarAdvertencia() {
+            const advertencia = document.querySelector('.advertencia');
+            advertencia.style.display = 'none';
+        }
+    </script>
+</head>
+<body style="font-family: Kanit; 
+background-position: center center;
+background-repeat: no-repeat;
+background-size: cover;
+background-attachment: fixed;">
+    <div class="advertencia">
+        {% if error_message %}
+            {{ error_message }}
+        {% else %}
+            ¡Atención! En esta página estás dentro de una conexión institucional, 
+            rígen las normas de convivencia del colegio.<br>
+            Si respondes algo de manera inadecuada, o te nombras de manera indebida, podrías ser sancionado.<br>
+            Muchas gracias.
+        {% endif %}
+        <span class="cerrar" onclick="cerrarAdvertencia()">&times;</span>
+    </div>
+
+    <div class="form-container", style="margin: 12vh auto;">
+        <h2>Iniciar Sesión</h2>
+        
+        <form action="/login-register" method="post">
+            <input type="text" name="username" placeholder="Usuario" required>
+            <input type="password" name="password" placeholder="Contraseña" required>
+            <input type="submit" name="login_register" value="Iniciar Sesión">
+        </form>
+        <h2 style="padding-top: 25px;">Registrarse</h2>
+        {% if register_message %}
+            <div class="flash-{{ register_message['category'] }}">{{ register_message['text'] }}</div>
+        {% endif %}
+        <form action="/login-register" method="post">
+            <input type="text" name="new_username" placeholder="Usuario (Nombre real)" required>
+            <input type="text" name="new_email" placeholder="Email (Correo del Colegio)" required>
+            <input type="password" name="new_password" placeholder="Contraseña" required>
+            <input type="submit" name="register" value="Registrarse">
+        </form>
+    </div>
+</body>
+</html>

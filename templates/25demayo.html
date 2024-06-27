@@ -1,0 +1,172 @@
+{% extends 'genericbase.html' %}
+{% block title %}25 DE MAYO{% endblock %}
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+<style>
+    body {
+        text-align: center;
+        font-family: Kanit;
+    }
+
+    .info, .dep {
+        text-align: left;
+        margin: 0 auto;
+        max-width: 800px;
+    }
+
+    .info, .Batuni {
+        text-align: left;
+        margin: 0 auto;
+        max-width: 800px; 
+    }
+
+    .cep {
+        text-align: center;
+    }
+    .iframe-container {
+        position: relative;
+        width: 75%; /* Keep width at 75% */
+        height: 0;
+        padding-top: 40%; /* 16:9 Aspect Ratio */
+        margin-top: 1.6em;
+        margin-bottom: 0.9em;
+        margin-left: auto; /* Centering horizontally */
+        margin-right: auto; /* Centering horizontally */
+        box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16);
+        overflow: hidden;
+        border-radius: 8px;
+        will-change: transform;
+    }
+
+    .iframe-container iframe {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        border: 0;
+    }
+
+            .btn {
+            border: none; 
+            color: black; 
+            padding: 12px 16px; 
+            font-size: 16px; 
+            cursor: pointer; 
+        }
+
+        .btn:hover {
+            background-color: RoyalBlue;
+        }
+
+        /* Estilo para el texto emergente */
+        .tooltip {
+            position: relative;
+            display: inline-block;
+        }
+
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 200px;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px;
+            position: absolute;
+            z-index: 1;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+</style>
+{% endblock %}
+{% block content %}
+    <h1 style="font-family: 'Kanit-Black';">Contexto histórico</h1> 
+    <h2 style="font-family: 'Kanit-Black';">25 DE MAYO 1810</h2>
+    <div class="info" style="font-weight: bold;">
+        &emsp; El 25 de mayo de 1810 en Argentina, más específicamente en Buenos Aires. Comenzó una revolución, llamada “Revolución de Mayo”, en esta ocurrió la llamada Primera Junta el 25 de mayo, esta remplazó al Virrey Baltasar Hidalgo de Cisneros que fue depuesto de su cargo. <br>
+        Todo el pueblo pedía que se creara un nuevo gobierno y que renunciara Cisneros, querían todo un cambio, que el que gobierne represente al pueblo no como los españoles que estaban al mando. <br>
+        La gente del pueblo se quejaba y Cisneros terminó renunciando y llegó La Primera Junta como el nuevo gobierno. Este estaba constituido por: <br>
+        <br>
+        ●Cornelio Saavedra: Cornelio Saavedra (1759-1829) fue un militar y político. Fue una de las personas más importantes de la Primera Junta de gobierno después de la Revolución de Mayo. <br>
+        <br>
+        ●Juan José Castelli: Juan José Castelli (1764-1812) también fue un abogado y político, y primo de Manuel Belgrano. Jugó un papel importante en la Revolución de Mayo y fue uno de los oradores más influyentes en el Cabildo Abierto del 22 de mayo de 1810. <br>
+        <br>
+        ●Juan José Paso <br>
+        <br>
+        ●Manuel Belgrano <br>
+        <br>
+        ●Mariano Moreno: Mariano Moreno (1778-1811) fue un abogado, periodista y político argentino. Se destacó como uno de los líderes de la Revolución de Mayo de 1810 y fue secretario de la Primera Junta de gobierno. Moreno era conocido por sus ideas progresistas y su defensa de la libertad de prensa y el comercio libre. <br>
+        <br>
+        ●Miguel de Azcuénaga <br>
+        <br>
+        ●Manuel Alberti <br>
+        <br>
+        ●Juan Larrea <br>
+        <br>
+        ●Domingo Matéu <br>
+        <br>
+        &emsp;Este suceso dio paso a los primeros procesos independentistas en Argentina. Este también dio punto final al control de los españoles sobre nuestra región. <br>
+    </div>
+        <div>
+            <a href="https://elhistoriador.com.ar/la-semana-de-mayo-de-1810/"target="_blank"> Para saber más sobre este tema</a>
+        </div>
+    <h2 style="font-family: 'Kanit-Black';">Independencia Argentina 9/7/1816</h2>
+    <div class="dep" style="font-weight: bold;">
+        &emsp; La Independencia Argentina fue un proceso histórico que comenzó el 25 de mayo de 1810 (después de la destitución del virrey Cisneros y la llegada de la Primera Junta). Se disolvió el Virreinato del Río de la Plata y se establecieron las Provincias unidas del Río de la Plata. <br>
+        <br>
+        &emsp;Referentes como San Martín y Belgrano fueron parte muy importante del proceso. La destitución de Fernando VII y la crisis española dieron el inicio a este movimiento independentista.<br>
+        <br>
+        &emsp; Después de la destitución del Virrey en 1810, se crea el Ejercito del Norte. Sin embargo, la presión y demás cosas hicieron que la Junta se disolviera y se formara el Primer Triunvirato. <br>
+        <br>
+        &emsp; En 1813 se forma un Segundo Triunvirato que convoca a una Asamblea Nacional. Aunque habían muchos conflictos internos y guerras civiles, un 9 de julio de 1816 Argentina se proclama legalmente una región independizada de los españoles.<br>
+        <br>
+        &emsp; Finalmente el 9 de julio de 1816, se declaró la Independencia Argentina en Tucumán.
+    </div>
+    <div>
+        <a href="https://elhistoriador.com.ar/independencia-dependencia-y-guerra-civil/" target="_blank"> Para saber más sobre este tema</a>
+    </div>
+    <h2 style="font-family: 'Kanit-Black';">Batalla de Cepeda</h2>
+    <div class="Batuni" style="font-weight: bold;">
+        &emsp; La Batalla de Cepeda fue un enfrentamiento entre Unitarios (Pensaban que el poder debía estar solo en Buenos Aires), y Federales (Pensaban que el poder lo deberían tener entre todas las provincias). <br>
+        <br>
+        &emsp;Esta batalla se dio el 1 de febrero de 1820, en la cañada de arroyo de Cepeda, en el lítime entre Santa Fe y Buenos Aires. <br>
+        <br>
+        &emsp;Se enfrentaron el ejército del Directorio (Unitarios al mando de José Rondeau) y las fuerzas federales del Litoral (Federales al mando de Estanislao López y Francisco Ramírez).<br>
+        <br>
+        &emsp;Está batalla duró nada más que 10 minutos, ya que las fuerzas federales lograron tomar las fuerzas del Directorio por las espaldas y lograron vencerlas porque se retiraron del campo de batalla. <br>
+    </div>
+    <div class="cep">
+        <a href="https://enciclopediaiberoamericana.com/batalla-de-cepeda-1820/"target="_blank"> Para saber más sobre este tema</a>
+    </div>
+
+    <div class="iframe-container">
+        <iframe class="responsive-iframe" src="https://www.canva.com/design/DAGEfYwsbRo/pvAvLap78moa9xQNYb1kmA/view?embed" allowfullscreen></iframe>
+    </div>
+    <div class="iframe-container">
+        <iframe class="responsive-iframe" src="https://www.canva.com/design/DAGFJJjTTO4/kF8nJxO8M5kujePe4xO_Bg/view?embed" allowfullscreen></iframe>
+    </div>
+    <div class="iframe-container">
+        <iframe class="responsive-iframe" src="https://www.youtube.com/embed/Oj80WYsYXGM" allowfullscreen></iframe>
+    </div>
+    <div class="iframe-container">
+        <iframe class="responsive-iframe" src="https://www.youtube.com/embed/Te6-dhPRzQE" allowfullscreen></iframe>
+    </div>
+    <div>
+        <a href="https://www.youtube.com/@Patriafios">
+            <button class="btn tooltip" >
+                <img src="static/yt.png" width="25vw" alt="Nuestro canal">
+                <span class="tooltiptext">Te invitamos a suscribirte a nuestro canal</span>
+                
+            </button>
+        </a>
+    </div>
+{% endblock %}

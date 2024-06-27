@@ -1,0 +1,77 @@
+{% extends 'genericbase.html' %}
+{% block title %}Cuenta de {{ dsn }}{% endblock %}
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+<style>
+    .wrapper {
+        padding: 10px; /* Add padding to the wrapper instead of the body */
+    }
+
+    .container {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .contenedor {
+        display: flex;
+        flex-direction: column; /* Make the buttons stack vertically */
+        align-items: center;
+        width: 100%; /* Occupy full width of the container */
+        height: auto; /* Auto height to accommodate content */
+        padding-top: 50px;
+    }
+
+    input[type="submit"] {
+        width: 100%;
+        height: 45px; /* Adjust height of the buttons */
+        padding: 10px;
+        margin-bottom: 8px; /* Add bottom margin between buttons */
+        border: none;
+        background-color: #124559;
+        color: white;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+        background-color: #1f779a;
+    }
+
+    .advertencia {
+        background-color: #ffcccb;
+        border: 1px solid #ff0000;
+        border-radius: 10px;
+        padding: 10px;
+        margin: 50px;
+        font-weight: bold;
+        text-align: center;
+    }
+</style>
+{% endblock %}
+{% block content %}
+{% if error_message %}
+<div class="advertencia">
+    {{ error_message }}
+</div>
+{% endif %}
+<div class="wrapper"> <!-- Wrapper div containing all content -->
+    <div class="container">
+        <h1 style="text-align: center;">Bienvenido/a, {{ dsn }}!</h1>
+        <h2 style="text-align: center;">Puntos Obtenidos: {{ pnt }}</h2>
+        <form action="{{ url_for('logout') }}" method="post">
+            <input type="submit" value="Cerrar sesión">
+        </form>
+
+        {% if isadmin %}
+        <form action="{{ url_for('adminpanel') }}" method="post">
+            <input type="submit" value="ADMIN" style="font-family: 'Courier New', Courier, monospace;">
+        </form>
+        {% endif %}
+        <script>
+            const button = document.getElementById('question-button');
+            const questionElement = document.getElementById('question');
+        </script>
+    </div>
+</div>
+
+{% endblock %}

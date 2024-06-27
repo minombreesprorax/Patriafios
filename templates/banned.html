@@ -1,0 +1,12 @@
+{% extends 'genericbase.html' %}
+{% block title %}¡Baneado!{% endblock %}
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+{% endblock %}
+{% block content %}
+    <div class="content">
+        <h1 class="error-sign">Baneado.</h1>
+        <p class="perror">Lamentablemente, este usuario fue eliminado de PATRIAFÍOS por haber incumplido las normas de convivencia.<br>
+        <a href="/logout" class="btn btn-primary">Cerrar Sesión</a></p>
+    </div>
+{% endblock %}

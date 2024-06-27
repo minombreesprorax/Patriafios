@@ -1,0 +1,20 @@
+{% extends 'genericbase.html' %}
+{% block title %}Nosotros{% endblock %}
+{% block head %}<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">{% endblock %}
+{% block content %}
+    <div style="padding: 1cm">
+        <h2 class="full">Nosotros</h2>
+        <br>
+        <h1 style="font-family: 'Kanit-Black';">Alec Nielsen</h1>
+        <p class="paragraph">Soy desarrollador, mi lenguaje de programación es python, precisamente lo que esta misma página utiliza para cargar.</p>
+        <h1 style="font-family: 'Kanit-Black';">Thiago Hernandez</h1>
+        <p class="paragraph">Hola, mi lenguaje principal es HTML y CSS, estoy aprendiendo JavasCript, yo armé la interfaz que hace que puedas ver todo en esta página web.</p>
+        <h1 style="font-family: 'Kanit-Black';">Francisco Fernandez</h1>
+        <p class="paragraph">Hola, me llaman Fran, aspirante a programador de HTML y CSS, hice parte de la interfaz y ayude a mi compañero Alec</p>
+        <h1 style="font-family: 'Kanit-Black';">Franco Fazio</h1>
+        <p class="paragraph">Hola, soy Franco Fazio, y me gustaria aprender HTML, me encargo de recoger la información.</p>
+        <h1 style="font-family: 'Kanit-Black';">Santino Vidaurre</h1>
+        <p class="paragraph">Me llamo Santino, me engargo de supervisar la información y las necesidades de los programadores.</p>
+        <br>
+    </div>
+{% endblock %}

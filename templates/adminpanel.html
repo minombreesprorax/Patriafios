@@ -1,0 +1,147 @@
+{% extends "genericbase.html" %}
+{% block title %}Pánel de Administrador{% endblock %}
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        body { 
+            background-color: #f5ea96;
+            font-family: 'Kanit'; 
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+        }   
+        h1 {
+            font-family: 'Kanit' sans-serif;
+        }
+        h2 {
+            font-family: 'Kanit' sans-serif;
+        }
+        p {
+            font-family: 'Kanit' sans-serif;
+        }
+        table {
+            border: 3px solid black;
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th {
+            font-family: 'Kanit' sans-serif;
+            border: 2px solid black;
+            padding: 5px;
+            border-collapse: collapse;
+            text-align: center;
+        }
+        td {
+            font-family: 'Kanit' sans-serif;
+            border: 2px solid black;
+            padding: 5px;
+            border-collapse: collapse;
+            text-align: center;
+        }
+        button { 
+            width: 100%; 
+            padding: 10px; 
+            border: none; 
+            background-color: #124559; 
+            color: white; 
+            border-radius: 5px; 
+            cursor: pointer; 
+        }
+
+        button:hover { 
+            background-color: #1f779a; 
+        }
+
+        button:disabled { 
+            background-color: #b1b1b1; 
+            color: black;
+            cursor: not-allowed;
+        }
+    </style>
+{% endblock %}
+{% block content %}
+<div style="padding: 20px;">
+    <h1 style="text-align: center;">Pánel de Administrador</h1>
+    <button id="download-excel">Descargar como archivo Excel</button>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Nombre de usuario</th>
+            <th>Nombre de muestra</th>
+            <th>Correo Electronico</th>
+            <th>Contraseña (Encriptada)</th>
+            <th>Es admin?</th>
+            <th>Puntos</th>
+            <th>Respondió?</th>
+            <th>Ver respuestas</th>
+            <th>Esta baneado?</th>
+        </tr>
+        {% for user in users %}
+        <tr>
+            <td>{{ user.id }}</td>
+            <td>{{ user.username }}</td>
+            <td><button data-user-id="{{ user.id }}" data-field="displayname">{{ user.displayname }}</button></td>
+            <td><button data-user-id="{{ user.id }}" data-field="email">{{ user.email }}</button></td>
+            <td><button data-user-id="{{ user.id }}" data-field="password">{{ user.password }}</button></td>
+            <td><button data-user-id="{{ user.id }}" data-field="isadmin">{{ "Si" if user.isadmin else "No" }}</button></td>
+            <td><button data-user-id="{{ user.id }}" data-field="points">{{ user.points }}</button></td>
+            <td><button data-user-id="{{ user.id }}" data-field="answered">{{ "Si" if user.answered else "No" }}</button></td>
+            {% if user.answered %}
+                <td><button data-user-id="{{ user.id }}" data-field="seeanswers">Ver respuestas</button></td>
+            {% else %}
+                <td><button data-user-id="{{ user.id }}" data-field="seeanswers" disabled>Ver respuestas</button></td>
+            {% endif %}
+            <td><button data-user-id="{{ user.id }}" data-field="isbanned">{{ "Si" if user.isbanned else "No" }}</button></td>
+        </tr>
+        {% endfor %}
+    </table>
+    <button onclick="goback()">Volver.</button>
+</div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var editButtons = document.querySelectorAll("table button[data-field]");
+            editButtons.forEach(function(button) {
+                button.addEventListener("click", function() {
+                    var userId = this.getAttribute("data-user-id");
+                    var field = this.getAttribute("data-field");
+                    if (field !== "seeanswers") {
+                        var newData = prompt("Cambiar datos:");
+                        if (newData !== null) {
+                            updateUserData(userId, field, newData);
+                        }
+                    } else {
+                        window.location.href = '/adminuserchecker/' + userId;
+                    }
+                });
+            });
+
+            function updateUserData(userId, field, newData) {
+                fetch(`/update_user/${userId}`, {
+                    method: 'POST',
+                    body: JSON.stringify({ field: field, new_data: newData }),
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                })
+                .then(response => response.json())
+                .then(data => {
+                    alert(data.message); // Show success message
+                    location.reload();
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('Hubo un error mientras se actualizaban los datos.');
+                });
+            }
+
+            // Download Excel button functionality
+            document.getElementById('download-excel').addEventListener('click', function() {
+                window.location.href = '/download_excel';
+            });
+        });
+        function goback() {
+            window.location.href = '/account';
+        }
+    </script>    
+{% endblock %}

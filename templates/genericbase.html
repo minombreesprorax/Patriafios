@@ -1,0 +1,53 @@
+<!-- base.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="/static/icon.ico">
+    <title>{% block title %}{% endblock %}</title>
+    {% block head %}{% endblock %}
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .content {
+            flex: 1;
+        }
+
+        .footer {
+            background-color: #0A2463;
+            color: #fff;
+            text-align: center;
+            padding-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <h1 class="titular">Patriafios</h1>
+        <nav>
+            <p><a href="/home">Página principal</a> ● <a href="/account">Cuenta</a> ● <a href="/challenge">Patriafío</a> ● <a href="/info">Información</a></p>
+        </nav>
+    </header>
+
+    <!-- Main content -->
+    <main class="content">
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p class="credit">Colegio TAE ● WebDriver Engine ● <a class="credit" href="/authors">Nosotros</a></p>
+    </footer>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <br>
+    <br>
+    <br>
+</body>
+</html>

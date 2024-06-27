@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Intro</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="/static/icon.ico">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body style="background-color: #0A2463;">
+    <div class="box" id="introBox">
+        <hl class="logo">PATRIAFIOS</hl>
+    </div>
+
+    <script>
+        // Function to redirect to the home page after animation completes
+        document.addEventListener("DOMContentLoaded", function(event) {
+            var introBox = document.getElementById('introBox');
+            introBox.addEventListener('animationend', function() {
+                setTimeout(function() {
+                    window.location.href = "{{ url_for('home') }}";
+                }, 2500); // 2500 milliseconds = 2.5 seconds
+            });
+        });
+    </script>
+</body>
+</html>

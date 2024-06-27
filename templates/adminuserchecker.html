@@ -1,0 +1,160 @@
+{% extends "genericbase.html" %}
+{% block title %}Pánel de Administrador{% endblock %}
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        body { 
+            background-color: #f5ea96;
+            font-family: 'Kanit'; 
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+        }   
+        h1 {
+            font-family: 'Kanit' sans-serif;
+        }
+        h2 {
+            font-family: 'Kanit' sans-serif;
+        }
+        p {
+            font-family: 'Kanit' sans-serif;
+        }
+        table {
+            border: 3px solid black;
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th {
+            font-family: 'Kanit' sans-serif;
+            border: 2px solid black;
+            padding: 5px;
+            border-collapse: collapse;
+            text-align: center;
+        }
+        td {
+            font-family: 'Kanit' sans-serif;
+            border: 2px solid black;
+            padding: 5px;
+            border-collapse: collapse;
+            text-align: center;
+        }
+        button { 
+            width: 100%; 
+            padding: 10px; 
+            border: none; 
+            background-color: #124559; 
+            color: white; 
+            border-radius: 5px; 
+            cursor: pointer; 
+        }
+
+        button:hover { 
+            background-color: #1f779a; 
+        }
+
+        button:disabled { 
+            background-color: #b1b1b1; 
+            color: black;
+            cursor: not-allowed;
+        }
+
+        .danger-button {
+            width: 100%; 
+            padding: 10px; 
+            border: none; 
+            background-color: #591212; 
+            color: white; 
+            border-radius: 5px; 
+            cursor: pointer; 
+        }
+
+        .danger-button:hover {
+            background-color: #9a1f1f; 
+        }
+
+        .danger-button:disabled {
+            background-color: #b1b1b1; 
+            color: black;
+            cursor: not-allowed;
+        }
+    </style>
+{% endblock %}
+{% block content %}
+    <div style="padding: 20px;">
+        <h1 style="text-align: center;">Pánel de Administrador</h1>
+        {% if user.id %}
+            <h1>Respuesta</h1>
+            <h2 style="padding-top: 20px; padding-bottom: 20px;">{{ user.displayname }} (@{{user.username}} | ID:{{user.id}} | MAIL:{{user.email}})</h2>
+            {% if user.answered %}
+                <h2 style="padding-top: 20px; padding-bottom: 20px;">{{ user.givenfirstquestion }}</h2>
+                <p style="color: black; font-size: 20px;">{{ user.lastanswer }}</p>
+                <h2 style="padding-top: 20px; padding-bottom: 20px;">{{ user.givensecondquestion }}</h2>
+                <p style="color: black; font-size: 20px; padding-bottom: 15px;">{{ "Correcto" if user.lastsecondanswer else "Incorrecto" }}</p>
+                <button onclick="score()">Puntuar (Añade puntos).</button>
+                <div style="padding-top: 5px; padding-bottom: 5px;"><button onclick="deleteanswer()" class="danger-button">Eliminar respuesta.</button></div>
+            {% else %}
+                <h1>Este usuario no ha respondido!</p>
+            {% endif %}
+        {% else %}
+            <h1>No existe el usuario.</h1>
+        {% endif %}
+        <button onclick="goback()">Volver.</button>
+    </div>
+    <script>
+        function goback() {
+            window.location.href = '/adminpanel';
+        }
+
+        function deleteanswer() {
+            var url = window.location.href;
+            var parts = url.split('/');
+            var user_id = parts[parts.length - 1]; // Extract user_id from the URL
+            var sure = prompt("¿Estas 100% seguro de que quieres eliminar esta respuesta? ¡Se ira para siempre (un largo tiempo)! (escribe \"Si\" para continuar)")
+            if (sure == "Si") {
+                fetch(`/clearanswer/${user_id}`, {
+                    method: 'POST',
+                })
+                .then(response => {
+                    if (response.ok) {
+                        alert('Eliminado correctamente.')
+                        location.reload();
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('No se ha podido eliminar esta respuesta.')
+                });
+            }
+        }
+
+        function score() {
+            var url = window.location.href;
+            var parts = url.split('/');
+            var value = parts[parts.length - 1];
+            var newData = prompt("Puntuar:");
+            if (newData !== null) {
+                updateUserData(value, "pointsadditive", newData);
+            }
+        }
+        
+        function updateUserData(userId, field, newData) {
+                fetch(`/update_user/${userId}`, {
+                    method: 'POST',
+                    body: JSON.stringify({ field: field, new_data: newData }),
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                })
+                .then(response => response.json())
+                .then(data => {
+                    alert(data.message); // Show success message
+                    location.reload();
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('Hubo un error mientras se actualizaban los datos.');
+                });
+            }
+    </script>
+{% endblock %}

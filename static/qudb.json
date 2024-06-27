@@ -1,0 +1,357 @@
+{
+    "long": [
+    
+    "¿Qué significa para ti el patriotismo y cómo lo expresas en tu vida diaria?" , 
+
+    "¿Crees que el patriotismo debería enseñarse en las escuelas? ¿Por qué sí o por qué no?" ,
+    
+    "¿Cómo diferencias entre patriotismo y nacionalismo?" ,
+    
+    "Nombra 3 mujeres representantes en la revolución de mayo" ,
+    
+    "¿Qué papel juegan los símbolos nacionales, como la bandera o el himno, en el fomento del patriotismo?" , 
+    
+    "¿Cómo se manifiesta el patriotismo en las celebraciones y festividades nacionales en Argentina?" ,
+    
+    "¿Es posible ser patriota y al mismo tiempo criticar aspectos de tu país? ¿Cómo se equilibra eso?" ,
+    
+    "¿Qué importancia tiene el patriotismo en la política y las decisiones gubernamentales?" ,
+    
+    "¿Cómo crees que el patriotismo afecta las relaciones internacionales y la percepción de otros países?" ,
+    
+    "¿De qué manera el patriotismo ha influido en la historia y el desarrollo de Argentina?" ,
+    
+    "¿Cómo ha evolucionado el concepto de patriotismo a lo largo de la historia de Argentina?" , 
+    
+    "¿De qué manera contribuyen los medios de comunicación al fomento del patriotismo?" ,
+    
+    "¿Es el servicio militar una expresión de patriotismo? ¿Por qué sí o por qué no?" ,
+    
+    "¿Cómo se relaciona el patriotismo con los valores culturales y tradiciones de Argentina?" ,
+    
+    "¿Qué papel juegan los héroes nacionales en la construcción de la identidad patriótica?" ,
+    
+    "¿Cómo puede el patriotismo influir en la economía de Argentina?" ,
+    
+    "¿Deberían los atletas mostrar patriotismo durante eventos deportivos internacionales? ¿Por qué?" ,
+    
+    "¿Cómo se manifiesta el patriotismo en la literatura y el arte de Argentina?" ,
+    
+    "¿Qué responsabilidades vienen con ser un ciudadano patriota?" ,
+    
+    "¿De qué manera los eventos deportivos internacionales fomentan el patriotismo en Argentina?" ,
+    
+    "¿Cómo se puede utilizar el patriotismo para promover la paz y la solidaridad internacionalmente?" ,
+    
+    "¿Cómo se puede fomentar un patriotismo que respete la libertad de las opiniones y creencias?" ,
+    
+    "¿De qué manera el patriotismo se refleja en la educación y la formación de los jóvenes?" ,
+    
+    "¿Qué papel juega el patriotismo en la conservación del patrimonio cultural y natural?" ,
+    
+    "¿Cómo se puede evitar que el patriotismo se utilice para justificar acciones injustas o discriminatorias?" ,
+    
+    "¿Qué importancia tiene el patriotismo en la memoria colectiva y la conmemoración de fechas históricas?" ,
+    
+    "¿Cómo se puede alentar a los ciudadanos a participar activamente en actos de patriotismo?" ,
+    
+    "¿Qué papel desempeñan las fuerzas armadas en la promoción del patriotismo?" ,
+    
+    "¿De qué manera el patriotismo puede influir en la percepción de la justicia y la equidad social?" ,
+    
+    "¿Cómo se puede fomentar un patriotismo que esté basado en valores universales como la libertad y la igualdad?" ,
+    
+    "¿Qué papel juegan las celebridades y figuras públicas en la promoción del patriotismo?" ,
+    
+    "¿Cómo se puede mantener el patriotismo en una sociedad cada vez más diversa y multicultural?" ,
+    
+    "¿De qué manera el patriotismo puede contribuir a la cohesión social y la solidaridad entre los ciudadanos?" ,
+    
+    "¿Cómo se puede utilizar el patriotismo para mejorar la imagen de un país en el extranjero?" ,
+    
+    "¿Qué papel juega el patriotismo en la formación de la identidad nacional?" ,
+    
+    "¿Dónde se reunieron las multitudes para celebrar la formación del primer gobierno patrio? " ,
+    
+    "¿De qué manera el patriotismo puede ser un factor de motivación para el progreso y la innovación?" ,
+    
+    "¿Cómo se puede equilibrar el respeto por la tradición con la necesidad de cambio y evolución en el concepto de patriotismo?" ,
+    
+    "¿Quién fue el creador de la primera junta?" ,
+    
+    "¿Cómo se puede promover un patriotismo que sea consciente de la historia y los errores del pasado?" ,
+    
+    "¿De qué manera el patriotismo puede ser un puente para el entendimiento y la cooperación entre diferentes culturas?" ,
+    
+    "¿Cómo se puede evitar que el patriotismo se convierta en un obstáculo para la crítica y el cuestionamiento constructivo?" ,
+    
+    "¿Quién fue Mariquita Sánchez de Thompson?" ,
+    
+    "¿Quiénes son las patricias argentinas? " ,
+    
+    "¿Qué es el cabildo?" ,
+    
+    "Busca y escribe un párrafo sobre qué fue la Primera Junta" ,
+    
+    "Da 3 ejemplos de próceres argentinos importantes para la Independencia" ,
+    
+    "Busca y explica que es el Himno Nacional Argentino" ,
+
+    "¿Cuándo se dio la batalla de Cepeda?" ,
+
+    "¿Qué pensaban los unitarios y los federales?",
+
+    "¿Cuánto duro la batalla?" ,
+
+    "¿Qué bandos se enfrentaron en esta batalla?" ,
+
+    "¿Por qué algunos historiadores llaman esa guerra de esa manera",
+
+    "¿Cuáles  fueron las causas principales de la batalla de Cepeda?",
+
+    "¿Cuáles  fueron las consecuencias de la batalla de Cepeda?",
+
+    "¿Cuáles  fueron los protagonistas de la batalla de Cepeda?",
+    
+    "Busca y resume la vida de adulto de San Martín",
+
+    "Busca y escribe que significa Libertad, Independecia y Revolución"
+
+
+        
+        
+    ],
+    "multiplechoice":
+    [
+        {
+            "question": "¿Qué simboliza principalmente la bandera de Argentina? ",
+            "answers": [
+                "La libertad",
+                "La historia y la cultura",
+                "El gobierno y la política",
+                "Todas las anteriores"
+            ],
+            "right": 4
+        },
+        {
+            "question": "¿Qué consideras más importante para demostrar patriotismo?  ",
+            "answers": [
+                "Votar en las elecciones",
+                "Conocer la historia del país",
+                "Todas son importantes",
+                "Servir en las fuerzas armadas"
+            ],
+            "right": 3
+        },
+        {
+            "question": "¿Cómo se debe enseñar el patriotismo a los niños?  ",
+            "answers": [
+                "Mediante juramentos y canciones patrióticas",
+                "A través de la historia nacional simple",
+                "Mediante explicaciones complicadas",
+                "Todas las anteriores"
+            ],
+            "right": 4
+        },
+        {
+            "question": "¿Qué papel juegan los deportistas en la promoción del patriotismo?",
+            "answers": [
+                "Son un ejemplo de excelencia nacional",
+                "Ayudan a unir al país durante eventos internacionales",
+                "No tienen un papel significativo",
+                "A y B son correctas"
+            ],
+            "right": 4
+        },
+        {
+            "question": "¿Es posible ser patriota y al mismo tiempo criticar al gobierno?",
+            "answers": [
+                "Sí, siempre y cuando la crítica sea constructiva",
+                "No, la crítica al gobierno es antipatriótica",
+                "Depende de la situación política del país  ",
+                "Sí, el patriotismo no está ligado al gobierno actual"
+            ],
+            "right": 1
+        },
+        {
+            "question": "¿Qué es más importante para el futuro del patriotismo en tu país? ",
+            "answers": [
+                "Mantener las tradiciones",
+                "Innovar y adaptarse a los cambios globales",
+                "Encontrar un equilibrio entre tradición e innovación",
+                "Fomentar un sentimiento nacionalista fuerte  "
+            ],
+            "right": 3
+        },
+        {
+            "question": "¿Cómo puede el patriotismo contribuir a la sociedad?  ",
+            "answers": [
+                "Uniendo a las personas bajo una identidad común",
+                "Promoviendo la participación cívica",
+                "Fomentando el respeto por los símbolos nacionales",
+                "Todas las anteriores"
+            ],
+            "right": 4
+        },
+        {
+            "question": "¿Cuál es la mejor manera de fomentar el patriotismo en la era digital?  ",
+            "answers": [
+                "A través de campañas en redes sociales  ",
+                "Mediante la educación en línea sobre la historia y cultura  ",
+                "Creando contenido digital interactivo sobre el país",
+                "Todas las anteriores"
+            ],
+            "right": 4
+        },
+        {
+            "question": "¿Qué fecha se celebra como el Día de la Patria en Argentina? ",
+            "answers": [
+                "9 de Julio",
+                "25 de mayo",
+                "20 de junio",
+                "20 de mayo"
+            ],
+            "right": 3
+        },
+        {
+            "question": "¿En qué año comenzó a gestarse el proceso revolucionario que daría lugar al surgimiento del Estado argentino? ",
+            "answers": [
+                "1816",
+                "1810",
+                "1820",
+                "1830"
+            ],
+            "right": 2
+        },
+        {
+            "question": "¿Quién encabezó la denominada Primera Junta en 1810? ",
+            "answers": [
+                "Cornelio Saavedra",
+                "Virrey Cisneros",
+                "Fernando VII",
+                "Junta de Sevilla "
+            ],
+            "right": 1
+        },
+        {
+            "question": "¿Cuál fue el primer gran paso hacia la independencia de Argentina? ",
+            "answers": [
+                "La Guerra de la Independencia",
+                "La Revolución de Julio",
+                "La Revolución de Mayo",
+                "La Revolución Industrial"
+            ],
+            "right": 3
+        },
+        {
+            "question": "¿Qué se conmemora el 25 de mayo? ",
+            "answers": [
+                "Último control de los españoles hacia Argentina",
+                "La defensa de la soberanía popular",
+                "La fundación de Buenos Aires",
+                "El día de la independencia"
+            ],
+            "right": 1
+        },
+        {
+            "question": "¿Cuál fue el resultado final del proceso revolucionario iniciado en 1810?",
+            "answers": [
+                "La creación de la Primera Junta",
+                "La independencia de Argentina",
+                "La destitución del virrey Cisneros ",
+                "La fundación de Buenos Aires "
+            ],
+            "right": 2
+        },
+        {
+            "question": "¿En qué fecha se declaró la independencia de Argentina? ",
+            "answers": [
+                "20 de mayo",
+                "20 de junio",
+                "25 de mayo",
+                "9 de Julio"
+            ],
+            "right": 4
+        },
+        {
+            "question": "¿Qué importancia tiene la independencia de Argentina en la historia latinoamericana? ",
+            "answers": [
+                "Fue el primer país en declarar su independencia",
+                "Inspiró a otras naciones a buscar su libertad",
+                "Estableció un modelo de gobierno federal",
+                "Marcó el fin de la colonización europea en América "
+            ],
+            "right": 2
+        },
+        {
+            "question": "¿Dónde se ubicaba el Cabildo de Buenos Aires?  ",
+            "answers": [
+                "Plaza de Mayo",
+                "Barrio de San Telmo",
+                "Puerto Madero ",
+                "Recoleta"
+            ],
+            "right": 1
+        },
+        {
+            "question": "¿Quién fue el último virrey que presidió el Cabildo de Buenos Aires antes de la Revolución de Mayo? ",
+            "answers": [
+                "Santiago de Liniers",
+                "Juan José Vértiz",
+                "Baltasar Hidalgo de Cisneros",
+                "Rafael de Sobremonte"
+            ],
+            "right": 3
+        },
+        {
+            "question": "¿Qué consideras más importante para demostrar patriotismo?  ",
+            "answers": [
+                "Votar en las elecciones",
+                "Conocer la historia del país",
+                "Todas son importantes",
+                "Servir en las fuerzas armadas"
+            ],
+            "right": 3
+        },
+        {
+            "question": "¿Quién fue el líder independentista argentino conocido como El Libertador?   ",
+            "answers": [
+                "Mariano Moreno ",
+                "José de San Martín",
+                "Domingo Faustino Sarmiento",
+                "Manuel Belgrano  "
+            ],
+            "right": 2
+        },
+        {
+            "question": "¿Qué consideras más importante para demostrar patriotismo?  ",
+            "answers": [
+                "Votar en las elecciones",
+                "Conocer la historia del país",
+                "Todas son importantes",
+                "Servir en las fuerzas armadas"
+            ],
+            "right": 3
+        },
+        {
+            "question": "¿Cuál de los siguientes próceres argentinos fue el primer presidente?",
+            "answers": [
+                "Domingo Faustino Sarmiento",
+                "Juan José Castelli",
+                "Manuel Belgrano",
+                "Bernardino Rivadavia"
+            ],
+            "right": 4
+        },
+        {
+            "question": "¿Quién fue el prócer argentino que se destacó por su labor educativa y su contribución a la educación en Argentina?",
+            "answers": [
+                "Domingo Faustino Sarmiento",
+                "Juan Manuel de Rosas",
+                "Juan Martín de Pueyrredón",
+                "Bartolomé Mitre"
+            ],
+            "right": 1
+        }
+    ]
+}
